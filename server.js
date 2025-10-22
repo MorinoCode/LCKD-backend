@@ -11,5 +11,5 @@ app.use(express.json());
 
 
 app.listen(PORT , ()=>{
-console.log(`App is runnig on port : ${PORT}`);
+console.log(`App is runnig on : ${PORT}`);
 })
