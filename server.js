@@ -1,11 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import { logger } from "./middlewares/logger.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import authRoutes from "./routes/authRoutes.js";
 import passwordRoutes from "./routes/passwordRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import cors from "cors";
 
 dotenv.config();
 
@@ -14,6 +14,7 @@ const app = express();
 
 app.use(express.json());
 app.use(logger);
+
 app.use(
   cors({
     origin: [
@@ -21,7 +22,8 @@ app.use(
       "https://lckd-bucket-dev.s3-website.eu-north-1.amazonaws.com",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
+    allowedHeaders: ["Content-Type", "Authorization"],   
+    credentials: true, 
   })
 );
 
