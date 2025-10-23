@@ -1,20 +1,14 @@
-# Base image
 FROM node:20-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
 COPY package*.json ./
+RUN npm install --production
 
-# Install dependencies
-RUN npm ci --omit=dev
-
-# Copy source code
 COPY . .
 
-# Expose backend port
-EXPOSE 5000
+ENV PORT=3000
 
-# Start the server
+EXPOSE 3000
+
 CMD ["node", "server.js"]
