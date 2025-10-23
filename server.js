@@ -16,9 +16,9 @@ app.use(express.json());
 app.use(logger);
 
 // Routes
-app.use("api/auth", authRoutes);
-app.use("api/passwords", passwordRoutes);
-app.use("api/users", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/passwords", passwordRoutes);
+app.use("/api/users", userRoutes);
 
 
 // Error handling middleware
