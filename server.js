@@ -5,6 +5,8 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 import authRoutes from "./routes/authRoutes.js";
 import passwordRoutes from "./routes/passwordRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import cors from "cors";
+
 
 
 dotenv.config();
@@ -14,6 +16,7 @@ const app = express();
 
 app.use(express.json());
 app.use(logger);
+app.use(cors())
 
 // Routes
 app.use("/api/auth", authRoutes);
