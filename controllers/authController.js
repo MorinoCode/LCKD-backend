@@ -33,7 +33,7 @@ export async function login(req, res, next) {
     });
     res.json({
       token,
-      user: { id: user.id, username: user.username, email: user.email },
+      user: { id: user.id, username: user.username},
     });
   } catch (err) {
     next(err);
